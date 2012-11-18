@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>JavaEE6 With Scala</title>
+    </h:head>
+    <h:body>
+        <H1>BOOK</H1>
+
+        <H2>Create new book</H2>
+        <h:form id="createbook">
+            title:<h:inputText id="booktitle" value="#{bookController.book.title}" label="タイトル" /><br />
+            price:<h:inputText id="bookprice" value="#{bookController.book.price}" /><br />
+            <p:commandButton id="btnCreate" update="bookList,booktitle,bookprice" action="#{bookController.createBook}" value="作成" />
+            <p:commandButton id="btnCancel" update="bookList,booktitle,bookprice" action="#{bookController.cancel}" value="キャンセル" immediate="true" />
+            <h2>Book list</h2>
+            <p:dataList id="bookList" value="#{bookController.bookList}" var="item" type="ordered">  
+                #{item.title}, #{item.price}  
+            </p:dataList>
+        </h:form>
+    </h:body>
+</html>
+
