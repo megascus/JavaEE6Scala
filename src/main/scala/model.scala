@@ -10,10 +10,11 @@ import java.util._
 import scala.reflect._
 
 @Entity
+@serializable
 @NamedQuery(name = "findAllBook", query = "SELECT b FROM Book b")
 class Book extends EntityBase with Title with Price with ISBN with NumberOfPage with Illustrations { 
 }
- 
+
 /** Defines required properties and operetions. */
 trait EntityBase {
   @javax.persistence.Id
